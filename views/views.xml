@@ -1,0 +1,39 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_payment_discount">
+            <field name="name">payment.acquirer.discount</field>
+            <field name="model">payment.acquirer</field>
+            <field name="inherit_id" ref="payment.acquirer_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <notebook>
+                        <page string="Descuento">
+				<group>
+					<field name="discount" />
+					<field name="product_discount" />
+				</group>
+			</page>
+		    </notebook>
+		</data>
+	    </field>
+    </record>
+
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Shop">
+      <xpath expr="." position="inside">
+        <script type="text/javascript" src="/website_sale_payment_discount/static/src/js/website_sale_payment.js"></script>
+      </xpath>
+    </template>
+
+    <template name="Payment Costs" id="payment_cost" inherit_id="website_sale.total">
+        <xpath expr="//tr[@id='order_total_untaxed']" position="before">
+            <tr id="order_payment">
+              <td class="text-right noborder text-muted">Método de Pago:</td>
+              <td class="text-xl-right noborder text-muted">
+                   <span t-field="website_sale_order.payment_discount" class="oe_currency_value" />
+              </td>
+            </tr>
+        </xpath>
+    </template>
+  </data>
+</odoo>
