@@ -41,7 +41,7 @@ class WebsiteSalePaymentDiscount(WebsiteSale):
 
 		return {
 			'status': True,
-			'discount': self._format_amount(order.payment_discount, currency),
+			'discount': Monetary.value_to_html(order.payment_discount, {'display_currency': currency}),
 		}
 
 
