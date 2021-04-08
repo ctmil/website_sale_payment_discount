@@ -14,6 +14,7 @@ class WebsiteSalePaymentDiscount(WebsiteSale):
 		return results
 
 	def _add_website_sale_payment(self, **post):
+		Monetary = request.env['ir.qweb.field.monetary']
 		order = request.website.sale_get_order()
 
 		for line in order.order_line:
