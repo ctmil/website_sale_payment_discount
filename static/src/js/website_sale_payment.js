@@ -32,20 +32,20 @@ odoo.define('website_sale_payment_discount.checkout', function (require) {
         var $amount_delivery = $('#order_payment span.oe_currency_value');
 
         if (result.status === true) {
-            $amount_delivery.text(result.new_amount_delivery);
-            $amount_untaxed.text(result.new_amount_untaxed);
-            $amount_tax.text(result.new_amount_tax);
-            $amount_total.text(result.new_amount_total);
-            $amount_delivery.text(result.discount);
+            $amount_delivery.html(result.new_amount_delivery);
+            $amount_untaxed.html(result.new_amount_untaxed);
+            $amount_tax.html(result.new_amount_tax);
+            $amount_total.html(result.new_amount_total);
+            $amount_delivery.html(result.discount);
             $pay_button.data('disabled_reasons').carrier_selection = false;
             $pay_button.prop('disabled', _.contains($pay_button.data('disabled_reasons'), true));
         }
         else {
-            $amount_delivery.text(result.new_amount_delivery);
-            $amount_untaxed.text(result.new_amount_untaxed);
-            $amount_tax.text(result.new_amount_tax);
-            $amount_total.text(result.new_amount_total);
-            $amount_delivery.text(result.discount);
+            $amount_delivery.html(result.new_amount_delivery);
+            $amount_untaxed.html(result.new_amount_untaxed);
+            $amount_tax.html(result.new_amount_tax);
+            $amount_total.html(result.new_amount_total);
+            $amount_delivery.html(result.discount);
         }
     };
 
