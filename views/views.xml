@@ -35,5 +35,19 @@
             </tr>
         </xpath>
     </template>
+
+    <record id="product_product_inherit_payment_discount" model="ir.ui.view">
+            <field name="name">product.product.inherit.payment</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='options']" position="inside">
+                    <div modifiers="{}">
+                        <field name="is_payment" modifiers="{}"/>
+                        <label for="is_payment" modifiers="{}"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
   </data>
 </odoo>
